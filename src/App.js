@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import './App.css'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { HashRouter, Route, Routes } from 'react-router-dom'
 import Nav from './Nav'
 import Home from './Home'
 import Cartcom from './Cartcom'
@@ -63,13 +63,13 @@ const App = () => {
    setData(prod.filter((item)=>regexp.test(item.title)))
 
   }
-  return (<BrowserRouter>
+  return (<HashRouter>
   <Nav ct={cart.length}/>
   <Routes>
     <Route path='/' element={<Home data={data} addprod={addprod} search={serach}/>}/>
     <Route path="/cart" element={<Cartcom cart={cart} incqty={incqty} decqty={decqty} delprod={delprod} ctotal={ctotal}/>}/>
   </Routes>
-  </BrowserRouter>
+  </HashRouter>
    
   )
 }
